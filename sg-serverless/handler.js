@@ -5,3 +5,5 @@ export const SensorLogger = getHandler().sensorLogger
 
 export const DeviceStatusSave = getHandler().deviceStatusSave
 export const DeviceStatus = getHandler().deviceStatus
+
+export const Playground = getHandler().playground

@@ -16,7 +16,7 @@ export default class DeviceStatus extends DynamoDA0 {
   upsertByStatus(mid, status) {
     const params = {
       TableName: this.tableName,
-      Item:{
+      Item: {
         mid,
         timestamp: moment().unix(),
         created_time: moment().toISOString(),
