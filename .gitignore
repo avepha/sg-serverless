@@ -5,4 +5,6 @@ jspm_packages
 # Serverless directories
 sg-serverless/.serverless
 sg-serverless/package-lock.json
+sg-serverless/.idea
+sg-serverless/.webpack
 iam-key.json
