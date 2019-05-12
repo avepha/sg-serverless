@@ -30,9 +30,19 @@ export default class SensorLogger extends DynamoDA0 {
   findByMid(mid, {after, before, limit = 10}) {
     const _after = _.isNil(after) ? 0 : moment(after).unix()
     const _before = _.isNil(before) ? Number.MAX_SAFE_INTEGER : moment(before).unix()
-    return this.Model.query('mid').eq(mid)
-      .where('timestamp').between(_after, _before)
-      .limit(limit)
-      .exec()
+
+    let queryPlan = this.Model.query('mid').eq(mid)
+
+    if (_.isNil(before) && _.isNil(after)) {
+      queryPlan = queryPlan.descending()
+    }
+    else if (!_.isNil(before)) {
+      queryPlan = queryPlan.where('timestamp').between(_after, _before).descending()
+    }
+    else if (!_.isNil(after)) {
+      queryPlan = queryPlan.where('timestamp').between(_after, _before).ascending()
+    }
+
+    return queryPlan.limit(limit).exec()
   }
 }
