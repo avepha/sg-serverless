@@ -10,3 +10,8 @@ ref1: https://codetrest.com/ES6-Code-AWS-Lambda
 ```$xslt
 serverless invoke local -f {func_name} --path ./test/event/{file.json}
 ```
+
+
+#TEST
+* user register
+./scripts/call UserRegister user_register.json

@@ -1,8 +1,8 @@
-import _ from 'lodash'
 import getContext from '../getContext'
 import withMiddleware from './withMiddlewares'
 
 async function insertSgContext(event, context, next) {
+  context.callbackWaitsForEmptyEventLoop = false;
   const sgContext = await getContext()
   context = {
     ...context,

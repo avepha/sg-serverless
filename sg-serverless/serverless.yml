@@ -30,19 +30,14 @@ provider:
 plugins:
   - serverless-webpack
 
+resources:
+  - ${file(resources/s3-bucket.yml)}
+
 custom: # Add custom section and include webpack configuration
+#  webpackIncludeModules: true
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: false
 
 functions:
-  Playground:
-    handler: handler.Playground
-  SensorLoggerSave:
-    handler: handler.SensorLoggerSave
-  SensorLogger:
-    handler: handler.SensorLogger
-    events:
-      - http:
-          path: /sensor-logger
-          method: get
+  - ${file(resources/function.yml)}

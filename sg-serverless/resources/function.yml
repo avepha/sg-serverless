@@ -1,0 +1,54 @@
+Playground:
+  handler: handler.Playground
+
+#user
+User:
+  handler: handler.User
+  events:
+    - http:
+        path: /users
+        method: get
+UserRegister:
+  handler: handler.UserRegister
+  events:
+    - http:
+        path: /user/registers
+        method: post
+UserDeviceRegister:
+  handler: handler.UserDeviceRegister
+  events:
+    - http:
+        path: /users/devices/registers
+        method: get
+
+#device
+DeviceRegister:
+  handler: handler.DeviceRegister
+  events:
+    - http:
+        path: /devices/registers
+        method: get
+Device:
+  handler: handler.Device
+  events:
+    - http:
+        path: /devices
+        method: get
+
+#sensor
+SensorLoggerSave:
+  handler: handler.SensorLoggerSave
+SensorLogger:
+  handler: handler.SensorLogger
+  events:
+    - http:
+        path: /sensor-logger
+        method: get
+SensorLoggerCsv:
+  handler: handler.SensorLoggerCsv
+  events:
+    - http:
+        path: /sensor-logger-csv
+        method: get
+SendSms:
+  handler: handler.SendSms

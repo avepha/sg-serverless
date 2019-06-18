@@ -43,6 +43,6 @@ export default class SensorLogger extends DynamoDA0 {
       queryPlan = queryPlan.where('timestamp').between(_after, _before).ascending()
     }
 
-    return queryPlan.limit(limit).exec()
+    return queryPlan.limit(limit).attributes(['mid', 'created_time', 'sensors']).exec()
   }
 }
