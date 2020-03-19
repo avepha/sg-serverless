@@ -19,5 +19,3 @@ export async function deviceRegister(event, {sgDevice}) {
   const {mid, profile} = event.body
   return sgDevice.create(mid, {profile})
 }
-
-

@@ -50,5 +50,13 @@ SensorLoggerCsv:
     - http:
         path: /sensor-logger-csv
         method: get
+
+#send Notification
 SendSms:
   handler: handler.SendSms
+SendEmail:
+  handler: handler.SendEmail
+SGOnlineEvent:
+  handler: handler.SGOnlineEvent
+SGOfflineEvent:
+  handler: handler.SGOfflineEvent

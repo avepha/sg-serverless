@@ -1,0 +1,7 @@
+#!/bin/bash
+BASEDIR=$(dirname $0)/../
+FUNC_NAME=$1
+TEST_FILE=$2
+TEST_URL=$BASEDIR/test/event/$TEST_FILE
+
+serverless invoke local -f $FUNC_NAME --path $TEST_URL

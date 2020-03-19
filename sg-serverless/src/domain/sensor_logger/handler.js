@@ -35,6 +35,6 @@ export async function sensorLoggerCsv(event, {sgSensorLogger}) {
   const csv = await loggerToCsv(sensorLoggers)
   const url = await uploadCsvAndPresignedUrl(csv, {mid, after, before})
   return response.redirect({
-    Location: url
+    Location: url.substring(0, url.indexOf('?'))
   })
 }

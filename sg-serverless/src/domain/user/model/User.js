@@ -8,6 +8,7 @@ const UserSchema = new Schema({
   profile: new Schema({
     name: {type: String},
     tel: {type: String, unique: true},
+    email: {type: String, unique: true}
   }, {_id: false}),
   created_time: Date,
   updated_time: Date,
@@ -31,5 +32,26 @@ export default class User extends MongoDAO {
       created_time: now
     })
     return newUser.save()
+  }
+
+  edit(user, {name, tel, email}) {
+    let update = false
+    if(!_.isNil(name)) {
+      update = true
+      user.profile.name = name
+    }
+
+    if(!_.isNil(tel)) {
+      update = true
+      user.profile.tel = tel
+    }
+
+    if(!_.isNil(email)) {
+      update = true
+      user.profile.email = email
+    }
+
+
+    return update ? user.save() : user
   }
  }

@@ -14,5 +14,8 @@ export const UserDeviceRegister = getHandler().userDeviceRegister
 export const DeviceRegister = getHandler().deviceRegister
 
 export const SendSms = getHandler().sendSms
+export const SendEmail = getHandler().sendEmail
+export const SGOnlineEvent = getHandler().sgOnlineEvent
+export const SGOfflineEvent = getHandler().sgOfflineEvent
 
 export const Playground = getHandler().playground

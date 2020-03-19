@@ -10,6 +10,12 @@ export default class MongoDAO {
     })
   }
 
+  findOneBy(filter) {
+    return this.Model.find(filter).then(data => {
+      return !_.isNil(data) && data.length > 0 ? data[0] : null
+    })
+  }
+
   __queryAfterBeforeLimit(__filter, projection, sortKey, {after, before, limit}) {
     if (limit === 0)
       return Promise.resolve([])

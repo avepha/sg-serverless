@@ -4,7 +4,7 @@ import config from '../config'
 const {accessKeyId, secretAccessKey} = config.aws
 const {bucket} = config.aws.s3
 const s3 = new aws.S3({accessKeyId, secretAccessKey})
-const sms = new aws.SNS({apiVersion: '2010-03-31'})
+const sns = new aws.SNS({apiVersion: '2010-03-31'})
 
 export function s3Upload(key, stream) {
   return s3.upload({
@@ -19,8 +19,9 @@ export function s3PresignedUrl(key) {
 }
 
 export async function publishSMS(phone, message) {
-  return sms.publish({
+  return sns.publish({
     Message: message, /* required */
     PhoneNumber: phone,
   }).promise()
 }
+
