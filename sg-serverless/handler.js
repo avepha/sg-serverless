@@ -4,6 +4,9 @@ export const SensorLoggerSave = getHandler().sensorLoggerSave
 export const SensorLogger = getHandler().sensorLogger
 export const SensorLoggerCsv = getHandler().sensorLoggerCsv
 
+export const ChannelLogger = getHandler().channelLogger
+export const ChannelLoggerSave = getHandler().channelLoggerSave
+
 export const DeviceStatusSave = getHandler().deviceStatusSave
 export const DeviceStatus = getHandler().deviceStatus
 

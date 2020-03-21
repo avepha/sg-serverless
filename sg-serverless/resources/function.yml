@@ -51,6 +51,20 @@ SensorLoggerCsv:
         path: /sensor-logger-csv
         method: get
 
+#channel logger
+ChannelLogger:
+  handler: handler.ChannelLogger
+  events:
+    - http:
+        path: /channel-logger
+        method: get
+ChannelLoggerSave:
+  handler: handler.ChannelLoggerSave
+  events:
+    - http:
+        path: /channel-logger-save
+        method: post
+
 #send Notification
 SendSms:
   handler: handler.SendSms

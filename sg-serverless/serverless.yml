@@ -2,7 +2,7 @@ service: sg
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   stage: dev
   region: ap-southeast-1
   iamRoleStatements:
