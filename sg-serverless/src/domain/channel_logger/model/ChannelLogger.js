@@ -18,7 +18,7 @@ export default class ChannelLogger extends MongoDAO {
   create(mid, {channel, status, datetime}) {
     const newLogger = new this.Model({
       mid,
-      datetime: new Date(datetime),
+      datetime: moment.utc(datetime).valueOf(),
       channel,
       status,
     })
@@ -27,8 +27,8 @@ export default class ChannelLogger extends MongoDAO {
   }
 
   find({mid, channel}, {after, before, limit = 10}) {
-    const _after = _.isNil(after) ? undefined : moment(after).toDate()
-    const _before = _.isNil(before) ? undefined : moment(before).toDate()
+    const _after = _.isNil(after) ? undefined : moment.utc(after).valueOf()
+    const _before = _.isNil(before) ? undefined : moment.utc(before).valueOf()
 
     let filter = {}
     if (!_.isNil(mid)) {

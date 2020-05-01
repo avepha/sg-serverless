@@ -4,7 +4,9 @@ import response from '../../helper/response'
 // Mutation
 export async function channelLoggerSave(event, {sgChannelLogger}) {
   if (_.isNil(event.body)) {
-    return null
+    return response.failure({
+      status: 'no body',
+    })
   }
 
   try {
@@ -12,6 +14,7 @@ export async function channelLoggerSave(event, {sgChannelLogger}) {
     await sgChannelLogger.create(mid, {channel, status, datetime})
   }
   catch (e) {
+    console.log(e)
     return response.failure(e)
   }
 
@@ -34,5 +37,4 @@ export async function channelLogger(event, {sgChannelLogger}) {
   catch (e) {
     return response.failure(e)
   }
-
 }
